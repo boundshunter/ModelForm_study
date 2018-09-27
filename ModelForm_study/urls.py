@@ -22,4 +22,8 @@ urlpatterns = [
     path('index/', views.index),
     path('user_list/', views.user_list),
     re_path('edit-(\d+)/', views.user_edit),
+    path('ajax/', views.ajax),
+    path('ajax_json/', views.ajax_json),
+    path('upload/$',views.upload),
+    path('upload_file/', views.upload_file),
 ]

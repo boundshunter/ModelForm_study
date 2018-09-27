@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/ajax_json/" method="POST" target="ifm1">
+        {% csrf_token %}
+        <iframe id="ifm1" name="ifm1"></iframe>
+        <input type="text" name="username">
+        <input type="text" name="email">
+        <input type="submit" value="Form提交" onclick="submitForm();">
+    </form>
+    <script src="/static/jquery-1.12.4.min.js"></script>
+    <script src="/static/jquery.cookie.js"></script>
+    <script>
+        function submitForm(){
+            $('#ifm1').load(function () {
+
+                var text = $('#ifm1').contents().find('body').text();
+                var obj = JSON.parse(text);
+                console.log(obj);
+            })
+        }
+    </script>
+</body>
+</html>
